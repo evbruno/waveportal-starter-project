@@ -5,7 +5,8 @@ import abi from "./utils/WavePortal.json";
 
 const App = () => {
 
-  const contractAddress = "0xfD59d299a39a06dDa8083A160A2291fa5CCccAaa";
+  // v3
+  const contractAddress = "0xDCdC1B699b4a5B073D7304963e54dC21F78A0Ed0";
   const contractABI = abi.abi;
 
   const [formMsg, setFormMsg] = useState("");
@@ -154,6 +155,8 @@ const wave = async () => {
     count = await wavePortalContract.getTotalWaves();
     console.log("Retrieved total wave count...", count.toNumber());
     // setTotalWaves(count.toNumber());
+
+    getAllWaves();
   } catch (error) {
     console.log(error);
   }
@@ -185,10 +188,6 @@ const wave = async () => {
         </div>
         )**/}
 
-        <button className="waveButton" onClick={wave}>
-          Wave at Me
-        </button>
-        
         <input 
           className="waveInputMsg" 
           type="text" 
@@ -196,6 +195,10 @@ const wave = async () => {
           placeholder="Write your message"
           onChange={handleChange} />
 
+        <button className="waveButton" onClick={wave}>
+          Wave at Me
+        </button>
+        
         {/*
         * If there is no currentAccount render this button
         */}
@@ -204,6 +207,15 @@ const wave = async () => {
             Connect Wallet
           </button>
         )}
+
+        {!allWaves.length && (
+          <div className="bio">
+            <strong>No waves at the moment 
+              <span role="img" aria-label="scream">😱</span>
+            </strong>
+          </div>
+        )}
+
         {allWaves.map((wave, index) => {
           return (
             <div key={index} style={{ backgroundColor: "OldLace", marginTop: "16px", padding: "8px" }}>

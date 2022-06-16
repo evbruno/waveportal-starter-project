@@ -39,3 +39,7 @@
   border: 1px olivedrab dashed;
   border-radius: 5px;
 }
+
+.error {
+  color: brown;
+}

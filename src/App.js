@@ -5,7 +5,7 @@ import abi from "./utils/WavePortal.json";
 
 const App = () => {
 
-  const contractAddress = "0x7a1beE5F3DBdF66f4d64dF1C6d22F69da22E5667";
+  const contractAddress = "0xfD59d299a39a06dDa8083A160A2291fa5CCccAaa";
   const contractABI = abi.abi;
 
   /*
